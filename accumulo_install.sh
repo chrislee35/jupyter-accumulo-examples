@@ -258,9 +258,9 @@ unset PORT_MATCH
 
 # step 5. download examples
 cd ~/jupyter
-git clone https://github.com/chrislee35/jupyter-accumulo-examples.git
-mkdir jupyter-accumulo-examples/settings
-cat << EOD > jupyter-accumulo-examples/settings/__init__.py
+git clone https://github.com/chrislee35/jupyter-accumulo-examples.git .
+mkdir settings
+cat << EOD > settings/__init__.py
 HOST="localhost"
 PORT=42424
 USER="root"
