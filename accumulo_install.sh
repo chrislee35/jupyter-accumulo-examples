@@ -67,11 +67,11 @@ tar xfz "accumulo-$ACCUMULO_VERSION-bin.tar.gz" -C ~/install
 
 # 1.d update the .bashrc with the paths from the installation thus far
 export JAVA_HOME="$JAVA_HOME"
-export HADOOP_HOME="/home/ubuntu/install/$HADOOP_VERSION"
-export HADOOP_PREFIX="/home/ubuntu/install/$HADOOP_VERSION"
-export ZOOKEEPER_HOME="/home/ubuntu/install/$ZOOKEEPER_VERSION"
-export ACCUMULO_HOME="/home/ubuntu/install/accumulo-$ACCUMULO_VERSION"
-export LD_LIBRARY_PATH="/home/ubuntu/install/$HADOOP_VERSION/lib/native:/home/ubuntu/install/accumulo-$ACCUMULO_VERSION/lib/native"
+export HADOOP_HOME="$HOME/install/$HADOOP_VERSION"
+export HADOOP_PREFIX="$HOME/install/$HADOOP_VERSION"
+export ZOOKEEPER_HOME="$HOME/install/$ZOOKEEPER_VERSION"
+export ACCUMULO_HOME="$HOME/install/accumulo-$ACCUMULO_VERSION"
+export LD_LIBRARY_PATH="$HADOOP_HOME/lib/native:$ACCUMULO_HOME/lib/native"
 
 cat << EOD >> ~/.bashrc
 export JAVA_HOME="$JAVA_HOME"
@@ -264,6 +264,6 @@ cat << EOD > settings/__init__.py
 HOST="localhost"
 PORT=42424
 USER="root"
-PASS="$ACCUMULO_TRACE_TOKEN_PASSWORD"
+PASSWORD="$ACCUMULO_TRACE_TOKEN_PASSWORD"
 EOD
-jupyter notebook --ip=0.0.0.0 --notebook-dir=`pwd`
+jupyter notebook --ip=0.0.0.0 --notebook-dir=`pwd` &
